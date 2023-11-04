@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/toast.min.css">
+	<link rel="stylesheet" href="assets/css/core.css">
+	<link rel="stylesheet" href="assets/css/totowifi.css">
+	    <link rel="website icon" type="images/ico" href="assets/img/icon.png" />
+    <title>Makatoto Login Portal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="assets/js/config.js"></script>
+    <script src="assets/js/md5.js"></script>
+	<script src="assets/js/pako.min.js"></script>
+	<script src="assets/js/qrcode.min.js"></script>
+	
+<style>
+#insertBtn {
+  display: block;
+  width: 100%;
+  height: 70px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #a90076;  
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+  text-shadow: 0px 1px 3px #000;
+  margin: 0px auto 0;
+  margin: 0px;
+  font-weight: bold;
+  border: 3px solid #80eaff;
+  box-shadow: 0px 0 20px #80eaff,
+    0px 0 200px #ff00c7;
+  -webkit-animation: btnWiggle 3s infinite;
+  -moz-animation: btnWiggle 3s infinite;
+  -o-animation: btnWiggle 3s infinite;
+  animation: btnWiggle 3s infinite;
+}
+
+/* animation */
+@-webkit-keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+@-o-keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+@keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+
+
+#qr-input-file {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+.input-bottom-space-20px {
+	margin-bottom: 20px;
+}
+
+.qrcode-wrapper{
+	background-color: white;
+	padding: 23px;
+	width: fit-content;
+}
+</style>
+</head>
+
+<body id="loginBody">
+
+
+
+
+
+ 
+
+
+<center>   
+    <span style="color: #fff; text-shadow: 0 0 20px #ff00c7, 0 0px; font-size: 30px; font-weight: 900; background-color:black; border-radius:15px; border: solid 3px yellow; padding:0; margin:0; width:170px; box-shadow: 0px 0 20px yellow,
+    0px 0 10px orange;">Makatoto Piso Wifi</span>
+    <br>    
+    <div class="container">        
+				<span style="color: #db9900; text-shadow: 0 0 3px #000, 0 0px; font-size: 28px; font-weight: 900;">DISCONNECTED</span>
+				<br>
+				<div style="margin-top: 10px"></div>					
+				<div align="center">
+				        <div class="panel">
+						&#128339; <span>0h : 0m : 0s</span>
+
+				    </div>
+				    		</div>
+				    		<div style="margin-top: 10px"></div>
+					
+					<marquee style="color: #e9a34efe; font-size: 12px; font-weight:bolder;">Makatoto Is Pogi</marquee>			
+										
+					<div id="vendoSelectDiv" style="margin-top: 0px; margin-bottom: 5px;" >
+						<label for="exampleFormControlSelect2"style="text-align:center;">SELECT VENDO</label>
+					
+						    <select id="sample" class="form-control" id="vendoSelected">
+      <option value="limuel"> Main Wifi </option>
+      <option value="limuel1"> Makatoto Voucher Wifi </option>
+      <option value="limuel2"> Makatoto Piso Wifi - Plaza </option>
+      <option value="limuel3"> Makatoto Public Wif </option>
+      <option value="limuel4"> Makatoto Personal Wifi </option>
+   </select>
+  
+						<br>
+						<br>
+					</div>
+					<div class="input-group">
+							<input type="voucher" class="form-control" id="voucherInput" aria-describedby="voucherHelp" placeholder="Voucher Code" style="border-radius: 0px;" >
+							<button type="button" id="connectBtn" onClick="doLogin(); return false" class="btn btn-primary" style="border-radius: 0;text-shadow: 0 1px 3px #000; padding: 0 10px 0 10px; background-color:green;">Submit</button>	
+							</div>
+							
+							<div style="margin-top: 20px;"></div>
+							<button type="button" id="insertBtn" onclick="window.location.href='insertcoin.html';"  class="btn btn-success btn-block"  data-toggle="modal" >INSERT COIN</button>
+					<br><br><br><br><br>
+					<div style="margin-top: 10px;"></div>
+					<a data-toggle="modal" href="#memberModal" style="color: #95e0ff;">HACK</a>
+					<span style="color: #909090">|</span>
+						    	<a href="https://www.facebook.com/profile.php?id=100073409073538" style="color: #ffb200;">Contact Us</a>
+					<span style="color: #909090">|</span>						    <a onclick="promoBtnAction(); return false" style="color: #fff;">RATES</a>			
+											    <br>
+						    </div>
+						    </div>
+			
+				
+					
+					<div class="modal fade" id="promoRatesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+					  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Promo Rates</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true" style="color: #fff">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body">
+							<center>
+								<div id="rateTypeDiv">
+								<label for="rateType" class="rate-title"><b>Makatoto PisoWifi Rates</b></label>
+								<select name="rateType" class="form-control" id="rateType" onChange="onRateTypeChange(this)">
+								  <option value="1">1php = 5hours</option>
+								  <option value="2">5php = 1day</option>
+								  	  <option value="3">10php = 2days</option>
+								  <option value="4">20php = 4days</option>
+								</select>
+								</div>
+							</center>
+							<br/>
+							<center>	
+							<div id="ratesBody"></div>
+							<div id="totalTime"></div>							
+							</center>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+			
+							
+						  </div>
+						 <audio controls autoplay loop hidden>
+        <source src="welcome.mp3" type="audio/mpeg">
+    </audio>
+	 
+					
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/popper.min.js"></script>
+			<script src="assets/js/bootstrap.min.js"></script>
+			<script src="assets/js/toast.min.js"></script>
+			<script src="assets/js/core.js"></script>
+			<script src="assets/js/eload.js"></script>
+	
+
+			</div>
+	</div>	
+
+</div>	
+</div>
+</div>
+</body>
+
+</html>

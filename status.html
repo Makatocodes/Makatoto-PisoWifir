@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/toast.min.css">
+	<link rel="stylesheet" href="assets/css/core.css">
+	<link rel="stylesheet" href="assets/css/totowifi.css">
+	   <link rel="website icon" type="images/ico" href="assets/img/icon.png" />
+    <title>Makatoto Wifi - Connected</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="assets/js/config.js"></script>
+	<script src="assets/js/pako.min.js"></script>
+
+	<style>
+#insertBtn {
+  display: block;
+  width: 100%;  
+  height: 70px;
+  color: #fff;
+  font-size: 20px;
+  background-color: #a90076;  
+  border-radius: 20px;
+  text-align: center;
+  line-height: 30px;
+  text-decoration: none;
+  text-shadow: 0px 1px 3px #000;
+  margin: 0px auto 0;
+  margin: 0px;
+  font-weight: bold;
+  border: 3px solid #80eaff;
+  box-shadow: 0px 0 20px #80eaff,
+    0px 0 200px #ff00c7;
+  -webkit-animation: btnWiggle 3s infinite;
+  -moz-animation: btnWiggle 3s infinite;
+  -o-animation: btnWiggle 3s infinite;
+  animation: btnWiggle 3s infinite;
+}
+
+/* animation */
+@-webkit-keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+@-o-keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+@keyframes btnWiggle {
+	0% {-webkit-transform: rotate(0deg);}
+	2% {-webkit-transform: rotate(-5deg);}
+	3.5% {-webkit-transform: rotate(3deg);}
+	5% {-webkit-transform: rotate(0deg);}
+	10.5% {-webkit-transform: rotate(-5deg);}
+	20% {-webkit-transform: rotate(3deg);}
+	23% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(0deg);}
+}
+p span {
+	color: #d05656;
+	font-weight: bold;
+}
+
+p {
+  	
+  text-align: center;
+  font-size: 10px;
+  
+  color: white;
+}
+
+ul {
+	
+	margin-bottom: 0;
+	margin-left: 0;
+}
+
+li {
+	display: inline-block;
+	margin-right: 2em;
+	width: 6em;
+}
+
+.numbers {
+	
+	color: white;
+	text-align: center;
+	font-weight:bold;
+	font-family: sans-serif;
+	font-size: 20px;
+
+	
+}
+
+.name {
+	font-family: sans-serif;
+	font-size: 15px;
+	margin-top: -27px;
+    width:90px;
+	text-align: center;
+	
+}
+</style>
+	
+</head>
+<body id="loginBody">
+<center>   
+    <span style="color: #fff; text-shadow: 0 0 20px #ff00c7, 0 0px; font-size: 30px; font-weight: 900; background-color:black; border-radius:15px; border: solid 3px yellow; padding:0; margin:0; width:170px; box-shadow: 0px 0 20px yellow,
+    0px 0 10px orange;">Makatoto Piso Wifi</span>
+    <br>
+
+<div class="container">
+		<form action="$(link-logout)" name="logout" >
+		</form>
+
+		<form action="$(link-logout)" name="forcelogout" >
+			<input type="hidden" name="erase-cookie" value="true" />
+		</form>
+		                  			
+				<span style="color: #db9900; text-shadow: 0 0 3px #000, 0 0px; font-size: 28px; font-weight: 900;">CONNECTED</span>
+				
+				<br>
+				<div style="margin-top: 10px"></div>
+                <div class="login">       								
+						        	<div align="left">
+						        	    	<div class="panel">		    
+						&#128339; Time Remaining <span class="odometer" id="remainTime"></span>
+				    <br>
+				    
+				     <ul id="countdown">
+				       
+          <span id="day" class="numbers">00</span>
+              <p class="name">:D</p>
+          <span id="hour" class="numbers">00</span>
+              <p class="name">:H</p>
+          <span id="minute" class="numbers">00</span>
+              <p class="name">:M</p>
+          <span id="second" class="numbers">00</span>
+              <p class="name">:S</p>
+        </ul>
+				  
+				    
+				    </div>				    
+				</div>
+				<div style="margin-top: 10px"></div>
+					<marquee style="color: #e9a34efe; font-size: 17px;">Enjoy Using Makatoto Wifi</marquee>							
+			<br><br>
+							<button type="button" id="insertBtn" onclick="window.location.href='pause.html';" class="btn btn-success btn-block" data-insert-type="extend" data-toggle="modal" style=" background-color:green; display: block; width: 100%; color: #fff; text-shadow: 0px 1px 2px red;">PAUSE TIME</button>
+					<br><br>
+					<button type="button" id="insertBtn" onclick="window.location.href='insertcoin.html';" class="btn btn-success btn-block" data-insert-type="extend" data-toggle="modal" style=" background-color:orange; display: block; width: 100%; color: #fff; text-shadow: 0px 1px 2px green;">EXTEND TIME</button>
+					<br><br><br><br><br>
+					<div style="margin-top: 10px;"></div>
+					<a href="https://www.facebook.com/limuelganal2003" style="color: #ffb200;"> Contact Us </a>
+					<span style="color: #909090">|</span>						    <a onclick="promoBtnAction(); return false" style="color: #fff;"> RATES </a>
+						    <br>
+						    </div>
+						    </div>
+			
+					 <audio controls autoplay loop hidden>
+        <source src="connected.mp3" type="audio/mpeg">
+    </audio>
+					
+					<div class="modal fade" id="promoRatesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+					  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Promo Rates</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true" style="color: #fff">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body">
+							<center>
+								<div id="rateTypeDiv">
+								<label for="rateType" class="rate-title"><b>Makatoto PisoWifi Rates</b></label>
+								<select name="rateType" class="form-control" id="rateType" onChange="onRateTypeChange(this)">
+								  <option value="1">1php = 5hours</option>
+								  <option value="2">5php = 1day</option>
+								  	  <option value="3">10php = 2days</option>
+								  <option value="4">20php = 4days</option>
+								</select>
+								</div>
+							</center>
+							<br/>
+							<center>	
+							<div id="ratesBody"></div>
+							<div id="totalTime"></div>							
+							</center>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					
+		
+						
+
+                </div>
+            </div>	
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/popper.min.js"></script>
+			<script src="assets/js/bootstrap.min.js"></script>
+			<script src="assets/js/toast.min.js"></script>
+			<script src="assets/js/core.js"></script>
+			<script src="assets/js/eload.js"></script>
+			<script src="assets/js/pako.min.js"></script>
+				<script src="script2.js"></script>
+
+			
+			
+
+</div>
+</center>
+</div>
+</body>
+
+</html>

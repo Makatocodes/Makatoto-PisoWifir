@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/toast.min.css">
+	<link rel="stylesheet" href="assets/css/core.css">
+	<link rel="stylesheet" href="assets/css/totowifi.css">
+	   <link rel="website icon" type="images/ico" href="assets/img/icon.png" />
+    <title>Makatoto Wifi - Pause</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="assets/js/config.js"></script>
+
+</head>
+<body id="loginBody">
+<center>   
+    <span style="color: #fff; text-shadow: 0 0 20px #ff00c7, 0 0px; font-size: 30px; font-weight: 900; background-color:black; border-radius:15px; border: solid 3px yellow; padding:0; margin:0; width:170px; box-shadow: 0px 0 20px yellow,
+    0px 0 10px orange;">Makatoto Piso Wifi</span>
+    <br>    
+<div class="container">
+<center>
+  
+		<form action="$(link-logout)" name="logout" >
+			<input type="hidden" name="erase-cookie" value="true" />
+		</form>
+		
+        <div class="row">
+            <div class="col-sm-5">
+                
+				
+				<div class="info"><center>
+						<div class="info-ip">
+						<img src="assets/img/IP.png" width="20px" height="20px" />
+						<span>IP:10.0.0.2</span>
+						</div>
+						<div class="info-mac">
+						<img src="assets/img/mac (1).png" width="20px" height="20px" />
+						<span>MAC: 127.10</span>
+						</div>
+					</center>
+				</div>
+				
+				<center>			
+				<span class="status-connected">Status: <span class="blinking1" id="connectionStatus" style="color: #4cd137">Paused</span></span>
+                </center>
+            </div>
+
+            <div class="col-sm-7">
+                <div class="login">
+				<div class="info-status">
+				<center>
+					<center>
+							<span class="form-text text-muted" style="color: white!important; font-size: 20px; font-weight: bold; text-shadow: 1px 1px 3px #000">You're currently on pause</span>
+					</center>
+					<div class="status-holder">
+						<div class="info-title"><img src="assets/img/voucher.png" width="20px" height="20px" /><span> Voucher</span></div>
+						<span style="font-size: 25px; font-weight: bold; text-shadow: 1px 1px 3px #000; color:white;">04H: 47M: 46S</span>
+					</div>
+					
+					<div class="break2"></div>
+					
+					<div class="status-holder">						
+						<div class="info-title"> 		<span>&#128339; </span> <span> Remaining Time</span></div>
+						<span class="odometer" id="pauseRemainTime" style="font-size: 16px; font-weight: bold; text-shadow: 1px 1px 3px #000"></span><br>	
+					</div>
+
+					<div class="status-holder">					
+						<div class="info-title"><span>		&#128339;  <span/><span> Expiration Time</span></div>
+						<span id="expirationTime" style="font-size: 16px; font-weight: bold; text-shadow: 1px 1px 3px #000; color:orange;"></span>
+					</div>
+					
+				</center>
+				</div>
+				
+				<button type="button" id="connectBtn" onclick="window.location.href='status.html';" class="btn btn-info btn-block" style="margin-top: 20px; display: block; width: 100%; text-shadow: 0px 1px 3px #000;">RESUME SESSION</button>
+				<div style="margin-bottom:-5px"></div>
+				<br>
+				<button type="button" id="cancelBtn" onclick="window.location.href='insertcoin.html';"  class="btn btn-danger btn-block" style="display: block; width: 100%; color: #fff; text-shadow: 0px 1px 2px #000;">INSERT COIN</button>
+		
+
+                </div>
+				
+			<div class="footer">
+					<span class="footers">
+					Powered by: <a href="https://www.facebook.com/limuelganal2003">Makatoto WiFi System - Maloco</a> &copy; All rights reserved 2023<br>
+					
+					</span>				
+				</div>
+					 <audio controls autoplay loop hidden>
+        <source src="disconnected.mp3" type="audio/mpeg">
+    </audio>
+            </div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/popper.min.js"></script>
+			<script src="assets/js/bootstrap.min.js"></script>
+			<script src="assets/js/toast.min.js"></script>
+			<script src="assets/js/core.js"></script>
+			<script src="assets/js/eload.js"></script>
+
+		
+			
+		
+			</div>
+</div>
+</center>
+</div>
+</body>
+
+</html>
